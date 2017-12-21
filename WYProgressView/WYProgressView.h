@@ -14,6 +14,12 @@ typedef NS_ENUM(NSInteger, WYProgressViewType) {
     WYProgressViewTypeHollow                    //环形
 };
 
+#define WYItemMargin 10
+#define WYBackgroundColor [UIColor clearColor]
+#define WYColorRGBA(r, g, b, a) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
+
 @interface WYProgressView : UIView
+
+@property (nonatomic, assign) CGFloat progress;
 
 @end

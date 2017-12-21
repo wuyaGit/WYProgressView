@@ -15,8 +15,8 @@
 		59C5EB6D1FEBAFFD00D9E37F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C5EB6C1FEBAFFD00D9E37F /* main.m */; };
 		59C5EB771FEBAFFD00D9E37F /* WYPorgressViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C5EB761FEBAFFD00D9E37F /* WYPorgressViewDemoTests.m */; };
 		59C5EB821FEBAFFD00D9E37F /* WYPorgressViewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C5EB811FEBAFFD00D9E37F /* WYPorgressViewDemoUITests.m */; };
-		59C5EB931FEBB07E00D9E37F /* UIButton+WYProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C5EB921FEBB07E00D9E37F /* UIButton+WYProgress.m */; };
-		59C5EB961FEBBA7800D9E37F /* WYProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C5EB951FEBBA7800D9E37F /* WYProgressView.m */; };
+		8560D3471FEBE8C30047B1D5 /* UIButton+WYProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8560D3441FEBE8C30047B1D5 /* UIButton+WYProgress.m */; };
+		8560D3481FEBE8C30047B1D5 /* WYProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8560D3461FEBE8C30047B1D5 /* WYProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +53,10 @@
 		59C5EB7D1FEBAFFD00D9E37F /* WYProgressViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WYProgressViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C5EB811FEBAFFD00D9E37F /* WYPorgressViewDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYPorgressViewDemoUITests.m; sourceTree = "<group>"; };
 		59C5EB831FEBAFFD00D9E37F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59C5EB911FEBB07E00D9E37F /* UIButton+WYProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WYProgress.h"; sourceTree = "<group>"; };
-		59C5EB921FEBB07E00D9E37F /* UIButton+WYProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WYProgress.m"; sourceTree = "<group>"; };
-		59C5EB941FEBBA7800D9E37F /* WYProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYProgressView.h; sourceTree = "<group>"; };
-		59C5EB951FEBBA7800D9E37F /* WYProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYProgressView.m; sourceTree = "<group>"; };
+		8560D3431FEBE8C30047B1D5 /* UIButton+WYProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WYProgress.h"; sourceTree = "<group>"; };
+		8560D3441FEBE8C30047B1D5 /* UIButton+WYProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WYProgress.m"; sourceTree = "<group>"; };
+		8560D3451FEBE8C30047B1D5 /* WYProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYProgressView.h; sourceTree = "<group>"; };
+		8560D3461FEBE8C30047B1D5 /* WYProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 		59C5EB511FEBAFFD00D9E37F = {
 			isa = PBXGroup;
 			children = (
-				59C5EB901FEBB03C00D9E37F /* WYProgressView */,
+				8560D3421FEBE8C30047B1D5 /* WYProgressView */,
 				59C5EB5C1FEBAFFD00D9E37F /* WYProgressViewDemo */,
 				59C5EB751FEBAFFD00D9E37F /* WYProgressViewDemoTests */,
 				59C5EB801FEBAFFD00D9E37F /* WYProgressViewDemoUITests */,
@@ -147,15 +147,16 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		59C5EB901FEBB03C00D9E37F /* WYProgressView */ = {
+		8560D3421FEBE8C30047B1D5 /* WYProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				59C5EB911FEBB07E00D9E37F /* UIButton+WYProgress.h */,
-				59C5EB921FEBB07E00D9E37F /* UIButton+WYProgress.m */,
-				59C5EB941FEBBA7800D9E37F /* WYProgressView.h */,
-				59C5EB951FEBBA7800D9E37F /* WYProgressView.m */,
+				8560D3431FEBE8C30047B1D5 /* UIButton+WYProgress.h */,
+				8560D3441FEBE8C30047B1D5 /* UIButton+WYProgress.m */,
+				8560D3451FEBE8C30047B1D5 /* WYProgressView.h */,
+				8560D3461FEBE8C30047B1D5 /* WYProgressView.m */,
 			);
-			path = WYProgressView;
+			name = WYProgressView;
+			path = ../WYProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,10 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C5EB961FEBBA7800D9E37F /* WYProgressView.m in Sources */,
+				8560D3481FEBE8C30047B1D5 /* WYProgressView.m in Sources */,
 				59C5EB621FEBAFFD00D9E37F /* ViewController.m in Sources */,
 				59C5EB6D1FEBAFFD00D9E37F /* main.m in Sources */,
-				59C5EB931FEBB07E00D9E37F /* UIButton+WYProgress.m in Sources */,
+				8560D3471FEBE8C30047B1D5 /* UIButton+WYProgress.m in Sources */,
 				59C5EB5F1FEBAFFD00D9E37F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

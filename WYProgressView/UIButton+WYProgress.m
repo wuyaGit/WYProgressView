@@ -9,6 +9,7 @@
 #import "UIButton+WYProgress.h"
 #import <objc/runtime.h>
 
+static const void *progressViewKey = &progressViewKey;
 static const void *handelKey = &handelKey;
 static const void *wyProgressViewKey = &wyProgressViewKey;
 static const void *progressKey = &progressKey;
@@ -27,7 +28,7 @@ static const void *progressKey = &progressKey;
     }
     
     if (wyProgressView) {
-        [self addTarget:self action:@selector(onTouchClickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self commonInit];
     }
     
     return self;
@@ -41,12 +42,27 @@ static const void *progressKey = &progressKey;
     
     //设置wyProgressViews属性后，该Button为ProgressView
     if (self.wyProgressView) {
-        //添加button事件。也可以
-        [self addTarget:self action:@selector(onTouchClickAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        
+        [self commonInit];
     }
+}
+
+- (void)commonInit {
+    //添加button事件。也可以
+    [self addTarget:self action:@selector(onTouchClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.progressView = [[WYProgressView alloc] initWithFrame:self.bounds];
+    self.progressView.userInteractionEnabled = NO;
+    [self addSubview:self.progressView];
+    
+    self.progress = 0.0;
+
+}
+
+- (void)reInit {
+    [self.progressView removeFromSuperview];
+    self.progressView = nil;
+    
+    self.handel = nil;
 }
 
 #pragma mark - touch methods
@@ -58,6 +74,16 @@ static const void *progressKey = &progressKey;
 }
 
 #pragma mark - runtime property
+
+- (void)setProgressView:(WYProgressView *)progressView {
+    [self willChangeValueForKey:@"progressViewKey"];
+    objc_setAssociatedObject(self, progressViewKey, progressView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self didChangeValueForKey:@"progressViewKey"];
+}
+
+- (WYProgressView *)progressView {
+    return objc_getAssociatedObject(self, progressViewKey);
+}
 
 - (void)setHandel:(onTouchClickHandel)handel {
     [self willChangeValueForKey:@"handelKey"];
@@ -71,11 +97,17 @@ static const void *progressKey = &progressKey;
 
 - (void)setWyProgressView:(BOOL)wyProgressView {
     [self willChangeValueForKey:@"wyProgressViewKey"];
-    objc_setAssociatedObject(self, wyProgressViewKey, @(wyProgressView), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, wyProgressViewKey, @(wyProgressView), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self didChangeValueForKey:@"wyProgressViewKey"];
     
     if (wyProgressView) {
-        
+        if (self.progressView == nil) {
+            [self commonInit];
+        }
+    }else {
+        if (self.progressView) {
+            [self reInit];
+        }
     }
 }
 
@@ -85,8 +117,13 @@ static const void *progressKey = &progressKey;
 
 - (void)setProgress:(CGFloat)progress {
     [self willChangeValueForKey:@"progressKey"];
-    objc_setAssociatedObject(self, progressKey, @(progress), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, progressKey, [NSNumber numberWithFloat:progress], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self didChangeValueForKey:@"progressKey"];
+    
+    if (progress >= 1) {
+        self.progress = 0;
+    }
+    self.progressView.progress = progress;
 }
 
 - (CGFloat)progress {
