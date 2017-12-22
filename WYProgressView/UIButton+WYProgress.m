@@ -13,6 +13,7 @@ static const void *progressViewKey = &progressViewKey;
 static const void *handelKey = &handelKey;
 static const void *wyProgressViewKey = &wyProgressViewKey;
 static const void *progressKey = &progressKey;
+static const void *wyProgressViewPropertyKey = &wyProgressViewPropertyKey;
 
 @implementation UIButton (WYProgress)
 
@@ -58,7 +59,7 @@ static const void *progressKey = &progressKey;
 
 }
 
-- (void)reInit {
+- (void)deInit {
     [self.progressView removeFromSuperview];
     self.progressView = nil;
     
@@ -106,7 +107,7 @@ static const void *progressKey = &progressKey;
         }
     }else {
         if (self.progressView) {
-            [self reInit];
+            [self deInit];
         }
     }
 }
@@ -120,14 +121,30 @@ static const void *progressKey = &progressKey;
     objc_setAssociatedObject(self, progressKey, [NSNumber numberWithFloat:progress], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self didChangeValueForKey:@"progressKey"];
     
-    if (progress >= 1) {
+    if (progress > 1) {
         self.progress = 0;
     }
-    self.progressView.progress = progress;
+    if (self.wyProgressView) {
+        self.progressView.progress = progress;
+    }
 }
 
 - (CGFloat)progress {
     return [objc_getAssociatedObject(self, progressKey) floatValue];
+}
+
+- (void)setWyProgressViewProperty:(NSDictionary *)wyProgressViewProperty {
+    [self willChangeValueForKey:@"wyProgressViewKey"];
+    objc_setAssociatedObject(self, wyProgressViewPropertyKey, wyProgressViewProperty, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self didChangeValueForKey:@"wyProgressViewKey"];
+    
+    if (self.wyProgressView) {
+        self.progressView.parameter = wyProgressViewProperty;
+    }
+}
+
+- (NSDictionary *)wyProgressViewProperty  {
+    return objc_getAssociatedObject(self, wyProgressViewPropertyKey);
 }
 
 @end

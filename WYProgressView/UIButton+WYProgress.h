@@ -18,4 +18,6 @@ typedef void (^onTouchClickHandel)(UIButton *);
 @property (nonatomic, assign) BOOL wyProgressView;
 @property (nonatomic, assign) CGFloat progress;
 
+// 参数集合
+@property (nonatomic, strong) NSDictionary *wyProgressViewProperty;
 @end
