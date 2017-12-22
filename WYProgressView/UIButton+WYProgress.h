@@ -21,8 +21,6 @@ typedef void (^onTouchClickHandel)(UIButton *);
 // 参数集合
 @property (nonatomic, strong) NSDictionary *wyProgressViewProperty;
 
-- (instancetype)initWithFrame:(CGRect)frame wyProgressView:(BOOL)wyProgressView;
-
 + (instancetype)buttonWithFrame:(CGRect)frame wyProgressView:(BOOL)wyProgressView;
 + (instancetype)buttonWithFrame:(CGRect)frame
                  wyProgressView:(BOOL)wyProgressView

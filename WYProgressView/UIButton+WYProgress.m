@@ -22,24 +22,23 @@ static const void *wyProgressViewPropertyKey = &wyProgressViewPropertyKey;
 /**
  * 通过代码初始化
  */
-- (instancetype)initWithFrame:(CGRect)frame wyProgressView:(BOOL)wyProgressView {
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame: frame];
     if (self) {
-        
-    }
-    
-    if (wyProgressView) {
-        [self commonInit];
+        self.backgroundColor = [UIColor clearColor];
     }
     
     return self;
 }
 
+
 /**
  * 类方法初始化
  */
 + (instancetype)buttonWithFrame:(CGRect)frame wyProgressView:(BOOL)wyProgressView {
-    return [[self alloc] initWithFrame:frame wyProgressView:wyProgressView];
+    UIButton *button = [[self alloc] initWithFrame:frame];
+    button.wyProgressView = wyProgressView;
+    return button;
 }
 
 /**
@@ -48,7 +47,7 @@ static const void *wyProgressViewPropertyKey = &wyProgressViewPropertyKey;
 + (instancetype)buttonWithFrame:(CGRect)frame
                  wyProgressView:(BOOL)wyProgressView
          wyProgressViewProperty:(NSDictionary *)parameters {
-    UIButton *button = [[self alloc] initWithFrame:frame wyProgressView:wyProgressView];
+    UIButton *button = [self buttonWithFrame:frame wyProgressView:wyProgressView];
     button.wyProgressViewProperty = parameters;
     
     return button;
@@ -75,7 +74,6 @@ static const void *wyProgressViewPropertyKey = &wyProgressViewPropertyKey;
     [self addSubview:self.progressView];
     
     self.progress = 0.0;
-
 }
 
 - (void)deInit {
@@ -153,9 +151,9 @@ static const void *wyProgressViewPropertyKey = &wyProgressViewPropertyKey;
 }
 
 - (void)setWyProgressViewProperty:(NSDictionary *)wyProgressViewProperty {
-    [self willChangeValueForKey:@"wyProgressViewKey"];
+    [self willChangeValueForKey:@"wyProgressViewPropertyKey"];
     objc_setAssociatedObject(self, wyProgressViewPropertyKey, wyProgressViewProperty, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self didChangeValueForKey:@"wyProgressViewKey"];
+    [self didChangeValueForKey:@"wyProgressViewPropertyKey"];
     
     if (self.wyProgressView) {
         self.progressView.parameter = wyProgressViewProperty;

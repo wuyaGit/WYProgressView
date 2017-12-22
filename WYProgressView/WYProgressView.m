@@ -34,8 +34,6 @@
 }
 
 - (void)commonInit {
-    self.backgroundColor = [UIColor clearColor];
-    
     self.bgroundColor = [UIColor clearColor];
     self.strokeColor = WYColorRGBA(210, 210, 210, 1);
     self.fillColor = WYColorRGBA(100, 100, 100, 0.6);
@@ -174,7 +172,7 @@
     _progress = progress;
     
     dispatch_async(dispatch_get_main_queue(), ^{
-            [self setNeedsDisplay];
+        [self setNeedsDisplay];
     });
 }
 

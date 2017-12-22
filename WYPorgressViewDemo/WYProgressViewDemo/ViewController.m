@@ -85,7 +85,7 @@
 
 - (UIButton *)btnProgressView1 {
     if (!_btnProgressView1) {
-        _btnProgressView1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 240, 200, 50) wyProgressView:YES];
+        _btnProgressView1 = [UIButton buttonWithFrame:CGRectMake(0, 240, 200, 50) wyProgressView:YES];
         _btnProgressView1.center = CGPointMake(self.view.center.x, _btnProgressView1.center.y);
         _btnProgressView1.wyProgressViewProperty = @{kProgressViewStrokeColor: WYColorRGBA(210, 210, 210, 1),
                                                      kProgressViewFontColor: [UIColor blueColor]};
@@ -108,7 +108,7 @@
 
 - (UIButton *)btnProgressView3 {
     if (!_btnProgressView3) {
-        _btnProgressView3 = [UIButton buttonWithFrame:CGRectMake(0, 326, 160, 160)
+        _btnProgressView3 = [UIButton buttonWithFrame:CGRectMake(0, 510, 160, 160)
                                        wyProgressView:YES
                                wyProgressViewProperty:@{kProgressViewStrokeColor: WYColorRGBA(260, 260, 260, 0.6),
                                                         kProgressViewFillColor: [UIColor whiteColor],
