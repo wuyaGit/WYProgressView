@@ -36,6 +36,25 @@ static const void *wyProgressViewPropertyKey = &wyProgressViewPropertyKey;
 }
 
 /**
+ * 类方法初始化
+ */
++ (instancetype)buttonWithFrame:(CGRect)frame wyProgressView:(BOOL)wyProgressView {
+    return [[self alloc] initWithFrame:frame wyProgressView:wyProgressView];
+}
+
+/**
+ * 类方法初始化
+ */
++ (instancetype)buttonWithFrame:(CGRect)frame
+                 wyProgressView:(BOOL)wyProgressView
+         wyProgressViewProperty:(NSDictionary *)parameters {
+    UIButton *button = [[self alloc] initWithFrame:frame wyProgressView:wyProgressView];
+    button.wyProgressViewProperty = parameters;
+    
+    return button;
+}
+
+/**
  * 在通过xib/Storyboard 创建控件时调用，在所有控件全部加载完成后调用
  */
 - (void)awakeFromNib {

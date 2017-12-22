@@ -85,9 +85,8 @@
 
 - (UIButton *)btnProgressView1 {
     if (!_btnProgressView1) {
-        _btnProgressView1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 240, 200, 50)];
+        _btnProgressView1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 240, 200, 50) wyProgressView:YES];
         _btnProgressView1.center = CGPointMake(self.view.center.x, _btnProgressView1.center.y);
-        _btnProgressView1.wyProgressView = YES;
         _btnProgressView1.wyProgressViewProperty = @{kProgressViewStrokeColor: WYColorRGBA(210, 210, 210, 1),
                                                      kProgressViewFontColor: [UIColor blueColor]};
     }
@@ -97,11 +96,11 @@
 
 - (UIButton *)btnProgressView2 {
     if (!_btnProgressView2) {
-        _btnProgressView2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 326, 160, 160)];
+        _btnProgressView2 = [UIButton buttonWithFrame:CGRectMake(0, 326, 160, 160)
+                                       wyProgressView:YES
+                               wyProgressViewProperty:@{kProgressViewFontColor: [UIColor blueColor],
+                                                        kProgressViewType: @(WYProgressViewTypeCircle)}];
         _btnProgressView2.center = CGPointMake(self.view.center.x, _btnProgressView2.center.y);
-        _btnProgressView2.wyProgressView = YES;
-        _btnProgressView2.progressView.progressViewType = WYProgressViewTypeCircle;
-        _btnProgressView2.progressView.fontColor = [UIColor blueColor];
     }
     
     return _btnProgressView2;
@@ -109,13 +108,13 @@
 
 - (UIButton *)btnProgressView3 {
     if (!_btnProgressView3) {
-        _btnProgressView3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 510, 160, 160)];
+        _btnProgressView3 = [UIButton buttonWithFrame:CGRectMake(0, 326, 160, 160)
+                                       wyProgressView:YES
+                               wyProgressViewProperty:@{kProgressViewStrokeColor: WYColorRGBA(260, 260, 260, 0.6),
+                                                        kProgressViewFillColor: [UIColor whiteColor],
+                                                        kProgressViewFontColor: [UIColor whiteColor],
+                                                        kProgressViewType: @(WYProgressViewTypeHollow)}];
         _btnProgressView3.center = CGPointMake(self.view.center.x, _btnProgressView3.center.y);
-        _btnProgressView3.wyProgressView = YES;
-        _btnProgressView3.wyProgressViewProperty = @{kProgressViewStrokeColor: WYColorRGBA(260, 260, 260, 0.6),
-                                                     kProgressViewFillColor: [UIColor whiteColor],
-                                                     kProgressViewFontColor: [UIColor whiteColor],
-                                                     kProgressViewType: @(WYProgressViewTypeHollow)};
     }
     
     return _btnProgressView3;
