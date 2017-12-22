@@ -6,11 +6,11 @@
 pod 'WYProgressView','~> 0.0.2'
 
 （2）直接下载源码，导入项目
-
+! [示例1 ] (https://github.com/wuyaGit/WYProgressView/blob/master/DesignIMG/2803B04D-E3CA-4DF1-A458-0F1C28C48C39.png)；
 
 # 2、使用说明
 （1）使用xib或storyboard创建
-  
+  ! [示例2 ] (https://github.com/wuyaGit/WYProgressView/blob/master/DesignIMG/FB02A7CA-DE8B-4882-B8C7-E1AA1CFEA6E4.png)；
 
 （2）使用代码创建
 
@@ -40,3 +40,4 @@ pod 'WYProgressView','~> 0.0.2'
   };
   
 # 3、效果图
+  ! [示例3 ] (https://github.com/wuyaGit/WYProgressView/blob/master/DesignIMG/progressview.gif)；
