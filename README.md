@@ -15,30 +15,30 @@ pod 'WYProgressView','~> 0.0.2'
 
 （2）使用代码创建
 
-[self.view addSubview:self.btnProgressView3];
+    [self.view addSubview:self.btnProgressView3];
 
-- (UIButton *)btnProgressView3 {
+    - (UIButton *)btnProgressView3 {
     
-    if (!_btnProgressView3) {
+      if (!_btnProgressView3) {
         
-        _btnProgressView3 = [UIButton buttonWithFrame:CGRectMake(0, 510, 160, 160)
+          _btnProgressView3 = [UIButton buttonWithFrame:CGRectMake(0, 510, 160, 160)
                                        wyProgressView:YES
                                wyProgressViewProperty:@{kProgressViewStrokeColor: WYColorRGBA(260, 260, 260, 0.6),
                                                         kProgressViewFillColor: [UIColor whiteColor],
                                                         kProgressViewFontColor: [UIColor whiteColor],
                                                         kProgressViewType: @(WYProgressViewTypeHollow)}];
-        _btnProgressView3.center = CGPointMake(self.view.center.x, _btnProgressView3.center.y);
-    }
+          _btnProgressView3.center = CGPointMake(self.view.center.x, _btnProgressView3.center.y);
+       }
     
-    return _btnProgressView3;
-}
+       return _btnProgressView3;
+    }
 
 （3）点击事件
   
-  self.btnProgressView3.handel = ^(UIButton *btn) {
+    self.btnProgressView3.handel = ^(UIButton *btn) {
         
         _btn3ProgressStop = !_btn3ProgressStop;
-  };
+    };
   
 # 3、效果图
 ![示例3](https://github.com/wuyaGit/WYProgressView/blob/master/DesignIMG/progressview.gif)
